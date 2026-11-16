@@ -11,3 +11,5 @@ hl.env("__GL_SHADER_DISK_CACHE_SKIP_CLEANUP", "1")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("NVD_BACKEND", "direct")
 hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
+
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
