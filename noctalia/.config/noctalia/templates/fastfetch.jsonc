@@ -1,0 +1,7 @@
+{
+  "logo": { "type": "none" },
+  "display": { "separator": "", "key": { "width": 0 } },
+  "modules": [ "break",
+    { "type": "title", "format": "  \u001b[1;38;2;{{colors.primary.default.red}};{{colors.primary.default.green}};{{colors.primary.default.blue}}m{user-name}\u001b[0;90m@{host-name}" },
+    { "type": "command", "key": "  ", "text": "printf '\\033[90m%s · %s · up %s' \"$(uname -r | cut -d- -f1)\" \"$XDG_CURRENT_DESKTOP\" \"$(uptime -p | sed 's/up //')\"" } ]
+}

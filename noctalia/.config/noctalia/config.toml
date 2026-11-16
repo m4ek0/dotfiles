@@ -167,3 +167,7 @@ output_path = "/home/maeko/.config/startpage/icon.svg"
 [theme.templates.user.starship]
 input_path  = "/home/maeko/.config/noctalia/templates/starship.toml"
 output_path = "/home/maeko/.config/starship.toml"
+
+[theme.templates.user.fastfetch]
+input_path  = "/home/maeko/.config/noctalia/templates/fastfetch.jsonc"
+output_path = "/home/maeko/.config/fastfetch/config.jsonc"
