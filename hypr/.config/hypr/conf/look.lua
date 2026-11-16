@@ -37,12 +37,12 @@ hl.config({
             popups     = true,
         },
         shadow = {
-            enabled      = false,
-            range        = 30,
+            enabled      = true,
+            range        = 10,
             render_power = 3,
-            offset       = "0 8",
-            color          = rgba(c.shadow, "99"),
-            color_inactive = rgba(c.shadow, "33"),
+            offset       = "0 2",
+            color          = rgba(c.shadow, "40"),
+            color_inactive = rgba(c.shadow, "1a"),
         },
     },
     group = {
