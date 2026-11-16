@@ -16,6 +16,7 @@ W({ match = { class = "^(org\\.qbittorrent\\.qBittorrent)$" },                  
 W({ match = { class = "^(thunar|Thunar|org\\.gnome\\.Nautilus|org\\.kde\\.dolphin)$" }, opacity = GLASS })
 W({ match = { class = "^(pavucontrol|org\\.pulseaudio\\.pavucontrol|com\\.saivert\\.pwvucontrol)$" }, opacity = GLASS })
 W({ match = { class = "^(com\\.github\\.wwmm\\.easyeffects|blueman-manager|nm-connection-editor)$" }, opacity = GLASS })
+W({ match = { class = "^(com\\.usebottles\\.bottles|OpenTabletDriver\\.UX)$" },          opacity = GLASS })
 W({ match = { class = "^(dev\\.)?(noctalia\\.Noctalia(\\.Settings)?)$" },               opacity = GLASS })
 W({ match = { class = "^(zen|firefox)$" },                                         opacity = CONTENT })
 W({ match = { class = "^(steam)$" },                                               opacity = CONTENT })
