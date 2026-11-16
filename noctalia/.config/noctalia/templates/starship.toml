@@ -1,0 +1,36 @@
+add_newline = true
+
+format = """
+$directory$git_branch$git_status$cmd_duration$jobs
+$character"""
+
+[directory]
+style             = "bold {{colors.primary.default.hex}}"
+format            = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncation_symbol = "…/"
+read_only         = " ro"
+read_only_style   = "{{colors.outline.default.hex}}"
+
+[git_branch]
+symbol = ""
+style  = "{{colors.outline.default.hex}}"
+format = "[on $branch]($style) "
+
+[git_status]
+style  = "{{colors.tertiary.default.hex}}"
+format = "([$all_status$ahead_behind]($style) )"
+
+[cmd_duration]
+min_time = 2000
+style    = "{{colors.outline.default.hex}}"
+format   = "[took $duration]($style) "
+
+[jobs]
+style  = "{{colors.outline.default.hex}}"
+format = "[$number job]($style) "
+
+[character]
+success_symbol = "[❯]({{colors.primary.default.hex}})"
+error_symbol   = "[❯]({{colors.error.default.hex}})"
+vimcmd_symbol  = "[❮]({{colors.primary.default.hex}})"

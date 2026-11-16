@@ -1,0 +1,17 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/logo-cat-small.txt",
+    "color": { "1": "magenta", "4": "white" },
+    "padding": { "top": 1, "left": 3, "right": 4 }
+  },
+  "display": { "separator": "", "key": { "width": 0 } },
+  "modules": [
+    "break",
+    { "type": "title", "format": "\u001b[1;35m{user-name}\u001b[0;90m@{host-name}" },
+    { "type": "command", "key": " ", "text": ". /etc/os-release; d=\"${XDG_CURRENT_DESKTOP:-tty}\"; printf '\\033[37m%s\\033[90m · \\033[37m%s\\033[90m · \\033[37m%s' \"${NAME% Linux}\" \"$d\" \"$(basename \"${SHELL:-sh}\")\"" },
+    { "type": "command", "key": " ", "text": "c=$(sed -n 's/^model name\\s*: //p;T;q' /proc/cpuinfo | sed 's/ [0-9]*-Core Processor//'); g=$(lspci 2>/dev/null | sed -n 's/.*VGA.*\\[\\(.*\\)\\].*/\\1/p' | head -1); printf '\\033[37m%s\\033[90m · \\033[37m%s' \"$c\" \"$g\"" },
+    { "type": "command", "key": " ", "text": "m=$(free -b | awk '/^Mem/{printf \"%.1f / %.1f GiB\", $3/1073741824, $2/1073741824}'); u=$(uptime -p | sed 's/^up //; s/ hours\\?/h/; s/ minutes\\?/m/; s/ days\\?/d/; s/,//g'); printf '\\033[37m%s\\033[90m · up \\033[37m%s' \"$m\" \"$u\"" }
+  ]
+}
