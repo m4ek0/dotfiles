@@ -1,0 +1,165 @@
+[shell]
+polkit_agent        = true
+font_family         = "Maple Mono NF CN"
+date_format         = "%A, %d.%m.%Y"
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.panel]
+transparency_mode     = "soft"
+wallpaper_placement   = "floating"
+wallpaper_position    = "center"
+wallpaper_show_names  = false
+
+[theme]
+mode             = "dark"
+source           = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+[theme.templates]
+enable_builtin_templates = true
+builtin_ids = ["kitty", "gtk3", "gtk4", "qt", "btop", "cava"]
+enable_community_templates = true
+community_ids = ["discord", "papirus-icons", "vscode"]
+
+[bar.main]
+position           = "top"
+thickness          = 28
+background_opacity = 0.80
+compositor_blur    = true
+radius             = 0
+margin_ends        = 0
+margin_edge        = 0
+padding            = 10
+widget_spacing     = 10
+font_scale         = 0.85
+shadow             = false
+capsule            = false
+start  = ["cpu", "cputemp", "ram"]
+center = ["ws_open", "workspaces", "ws_close"]
+end    = ["media", "viz", "tray", "network", "volume", "notifications", "clock", "session"]
+
+[widget.ws_open]
+type = "text"
+text = "["
+
+[widget.ws_close]
+type = "text"
+text = "]"
+
+[widget.cpu]
+type        = "sysmon"
+stat        = "cpu_usage"
+
+[widget.cputemp]
+type        = "sysmon"
+stat        = "cpu_temp"
+
+[widget.ram]
+type        = "sysmon"
+stat        = "ram_used"
+
+[widget.workspaces]
+style        = "minimal"
+show_labels  = true
+label_source = "id"
+
+[widget.viz]
+type           = "audio_visualizer"
+bands          = 16
+show_when_idle = false
+
+[widget.tray]
+drawer         = true
+drawer_columns = 3
+hide_passive   = true
+
+[widget.media]
+hide_when_no_media = true
+min_length         = 140
+max_length         = 320
+title_scroll       = "on_hover"
+show_progress      = true
+
+[widget.network]
+show_label = false
+
+[widget.notifications]
+hide_when_no_unread = true
+
+[widget.clock]
+format = "{:%H:%M}"
+
+[theme.templates.user.rgb]
+input_path  = "/home/maeko/.config/noctalia/templates/primary.txt"
+output_path = "/home/maeko/.cache/noctalia/primary.txt"
+post_hook   = "/home/maeko/.local/bin/openrgb-sync-theme.sh"
+
+[theme.templates.user.hypr_colors]
+input_path  = "/home/maeko/.config/noctalia/templates/hypr-colors.lua"
+output_path = "/home/maeko/.config/hypr/conf/colors.lua"
+
+[hooks]
+colors_changed = "hyprctl reload"
+
+[idle.behavior.lock]
+timeout = 600
+action  = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 900
+action  = "screen_off"
+enabled = true
+
+[theme.templates.user.zen]
+input_path  = "/home/maeko/.config/noctalia/templates/zen.css"
+output_path = "/home/maeko/.config/noctalia/generated/zen.css"
+
+[dock]
+enabled = false
+
+[desktop_widgets]
+enabled = false
+
+[theme.templates.user.kitty_ansi]
+input_path  = "/home/maeko/.config/noctalia/templates/kitty-ansi.conf"
+output_path = "/home/maeko/.config/kitty/ansi-colors.conf"
+post_hook   = "pkill -USR1 -x kitty"
+
+[theme.templates.user.spotifast]
+input_path  = "/home/maeko/.config/noctalia/templates/spotifast.json"
+output_path = "/home/maeko/.config/spotifast/themes/Noctalia.json"
+post_hook   = "spotifast reload-themes"
+
+[wallpaper]
+directory             = "/home/maeko/Pictures/W"
+transition            = ["wipe", "disc", "stripes", "honeycomb", "vortex", "pixel", "diamond", "golden", "melt"]
+transition_duration   = 1200
+edge_smoothness       = 0.35
+transition_on_startup = true
+
+[wallpaper.automation]
+enabled             = false
+interval_seconds    = 1800
+order               = "random"
+pause_on_fullscreen = true
+
+[theme.templates.user.uosc]
+input_path  = "/home/maeko/.config/noctalia/templates/uosc.conf"
+output_path = "/home/maeko/.config/mpv/script-opts/uosc.conf"
+
+[theme.templates.user.startpage]
+input_path  = "/home/maeko/.config/noctalia/templates/startpage.css"
+output_path = "/home/maeko/.config/startpage/colors.css"
+post_hook   = "/home/maeko/.local/bin/startpage-sync.sh"
+
+[theme.templates.user.steam_material]
+input_path  = "/home/maeko/.config/noctalia/templates/steam-material.css"
+output_path = "/home/maeko/.local/share/Steam/millennium/themes/Material-Theme/css/main/colors/matugen.css"
+post_hook   = "/home/maeko/.local/bin/steam-theme-sync.sh"
+
+[theme.templates.user.startpage_icon]
+input_path  = "/home/maeko/.config/noctalia/templates/startpage-icon.svg"
+output_path = "/home/maeko/.config/startpage/icon.svg"

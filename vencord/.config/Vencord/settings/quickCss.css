@@ -1,0 +1,34 @@
+body {
+    --font: 'gg sans', 'Noto Sans', sans-serif !important;
+    --code-font: 'Maple Mono NF CN', monospace !important;
+}
+
+body {
+    --custom-window-controls: off !important;
+}
+[class*="winButtons"],
+[class*="winButton_"] {
+    display: none !important;
+}
+
+body {
+    --small-user-panel: on !important;              --top-bar-title-position: left !important;      --subtle-top-bar-title: on !important;      }
+
+[class*="membersWrap_"],
+[class*="membersWrap_"] [class*="members_"] {
+    min-width: 200px !important;
+    width: 200px !important;
+}
+
+[class*="privateChannels"] li:has(a[href="/store"]),
+[class*="privateChannels"] li:has(a[href="/shop"]),
+[class*="privateChannels"] li:has(a[href^="/quest-home"]),
+[class*="privateChannels"] div:has(> a[href="/store"]),
+[class*="privateChannels"] div:has(> a[href="/shop"]),
+[class*="privateChannels"] div:has(> a[href^="/quest-home"]),
+[class*="nowPlayingColumn"],
+button[aria-label="Send a gift"],
+button[aria-label="Apps"],
+button[aria-label="Open sticker picker"] {
+    display: none !important;
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Tab</title>
+<link rel="stylesheet" href="colors.css">
+<script src="location.js"></script>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root { --font: "Maple Mono NF CN", "Maple Mono NF", monospace; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--bg);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4vh;     }
+    .wall {
+    position: fixed; inset: 0; z-index: -2;
+    background: var(--bg) url("wallpaper") center / 2020px 1136px no-repeat;
+    filter: blur(18px) saturate(1.2) brightness(0.6);
+  }
+  .tint {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 100%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%),
+      linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 55%, transparent));
+  }
+  main {
+    width: min(560px, calc(100vw - 32px));
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+  }
+  .clock {
+    font-size: clamp(64px, 10vw, 110px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .clock span { color: var(--accent); }
+  .date {
+    margin-top: -12px;
+    font-size: 14px;
+    color: var(--muted);
+    opacity: .75;
+  }
+  form {
+    width: 100%;
+    display: flex; align-items: center; gap: 10px;
+    height: 48px; padding: 0 16px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--card) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--outline) 50%, transparent);
+    backdrop-filter: blur(14px);
+    transition: border-color .2s;
+  }
+  form:focus-within { border-color: var(--accent); }
+  form .icon { color: var(--muted); font-size: 16px; }
+  input {
+    flex: 1; min-width: 0;
+    background: none; border: 0; outline: 0;
+    font: inherit; font-size: 15px; color: var(--text);
+  }
+  .hint { font-size: 13px; color: var(--muted); opacity: .6; margin-top: -8px; min-height: 1em; }
+  input::placeholder { color: var(--muted); opacity: .6; }
+  nav { display: flex; gap: 22px; font-size: 13px; }
+  nav a {
+    color: var(--muted);
+    opacity: .7;
+    text-decoration: none;
+    transition: color .15s, opacity .15s;
+  }
+  nav a:hover, nav a:focus-visible { color: var(--accent); opacity: 1; outline: none; }
+</style>
+</head>
+<body>
+<div class="wall"></div><div class="tint"></div>
+<main>
+  <div class="clock" id="clock">00<span>:</span>00</div>
+  <div class="date" id="date"></div>
+  <div class="hint" id="weather"></div>
+  <nav>
+    <a href="https://www.youtube.com">youtube</a>
+    <a href="https://x.com">twitter</a>
+    <a href="https://web.telegram.org">telegram</a>
+  </nav>
+</main>
+<script>
+  const pad = n => String(n).padStart(2, "0");
+  function tick() {
+    const d = new Date();
+    document.getElementById("clock").innerHTML = `${pad(d.getHours())}<span>:</span>${pad(d.getMinutes())}`;
+    document.getElementById("date").textContent =
+      d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }).toLowerCase();
+  }
+  tick(); setInterval(tick, 1000);
+
+  const WMO = {0:"clear",1:"mostly clear",2:"partly cloudy",3:"cloudy",45:"fog",48:"fog",51:"drizzle",53:"drizzle",55:"drizzle",
+    56:"freezing drizzle",57:"freezing drizzle",61:"light rain",63:"rain",65:"heavy rain",66:"freezing rain",67:"freezing rain",
+    71:"light snow",73:"snow",75:"heavy snow",77:"snow grains",80:"showers",81:"showers",82:"heavy showers",85:"snow showers",86:"snow showers",
+    95:"thunderstorm",96:"thunderstorm",99:"thunderstorm"};
+  async function weather() {
+    try {
+      if (!window.LOC) return;
+      const r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LOC.lat}&longitude=${LOC.lon}&current=temperature_2m,apparent_temperature,weather_code`);
+      const c = (await r.json()).current;
+      document.getElementById("weather").textContent =
+        `${Math.round(c.temperature_2m)}° ${WMO[c.weather_code] ?? ""} · feels ${Math.round(c.apparent_temperature)}°`;
+    } catch (e) {}
+  }
+  weather(); setInterval(weather, 15 * 60 * 1000);
+
+</script>
+</body>
+</html>

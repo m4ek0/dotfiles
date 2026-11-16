@@ -1,0 +1,12 @@
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.theme.toolbar-theme", 0);
+user_pref("browser.theme.content-theme", 0);
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.hardware-video-decoding.force-enabled", true);
+user_pref("media.rdd-ffmpeg.enabled", true);
+user_pref("widget.dmabuf.force-enabled", true);
+user_pref("browser.startup.homepage", "file:///home/maeko/.config/startpage/index.html");
+user_pref("browser.startup.page", 1);
+user_pref("zen.urlbar.replace-newtab", false);
+user_pref("zen.urlbar.behavior", "floating-on-type");
