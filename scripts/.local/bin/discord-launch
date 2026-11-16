@@ -1,3 +1,9 @@
 #!/bin/sh
 export __GL_YIELD=USLEEP
-exec /usr/bin/discord "$@"
+last=""
+for a in "$@"; do last=$a; done
+case "$last" in
+    discord:*|https://*) exec /usr/bin/discord "$@" ;;
+    --) exec /usr/bin/discord "$@" "discord://-/channels/@me" ;;
+    *) exec /usr/bin/discord "$@" --url -- "discord://-/channels/@me" ;;
+esac
