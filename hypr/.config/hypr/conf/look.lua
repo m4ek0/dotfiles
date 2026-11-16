@@ -37,7 +37,7 @@ hl.config({
             popups     = true,
         },
         shadow = {
-            enabled      = true,
+            enabled      = false,
             range        = 30,
             render_power = 3,
             offset       = "0 8",
