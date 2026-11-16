@@ -143,3 +143,20 @@ toolbar .toolbarbutton-1 > .toolbarbutton-icon {
 #zen-sidebar-foot-buttons toolbarbutton:hover .toolbarbutton-icon {
   fill: {{colors.primary.default.hex}} !important;
 }
+
+:root {
+  --toolbarbutton-hover-background: {{colors.surface_container_highest.default.hex}} !important;
+  --toolbarbutton-active-background: {{colors.primary_container.default.hex}} !important;
+}
+toolbarbutton:not([disabled]):hover > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack, .toolbarbutton-text) {
+  background-color: {{colors.surface_container_highest.default.hex}} !important;
+  border-radius: 8px !important;
+}
+.tabbrowser-tab:not([selected]):hover > .tab-stack > .tab-background {
+  background-color: {{colors.surface_container_highest.default.hex}} !important;
+}
+#tabs-newtab-button:hover,
+#zen-sidebar-foot-buttons toolbarbutton:hover {
+  background-color: {{colors.surface_container_highest.default.hex}} !important;
+  border-radius: 8px !important;
+}
