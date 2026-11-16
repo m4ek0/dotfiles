@@ -151,8 +151,8 @@ input_path  = "/home/maeko/.config/noctalia/templates/uosc.conf"
 output_path = "/home/maeko/.config/mpv/script-opts/uosc.conf"
 
 [theme.templates.user.startpage]
-input_path  = "/home/maeko/.config/noctalia/templates/startpage.css"
-output_path = "/home/maeko/.config/startpage/colors.css"
+input_path  = "/home/maeko/.config/noctalia/templates/startpage.html"
+output_path = "/home/maeko/.config/startpage/index.html"
 post_hook   = "/home/maeko/.local/bin/startpage-sync.sh"
 
 [theme.templates.user.steam_material]
@@ -160,9 +160,6 @@ input_path  = "/home/maeko/.config/noctalia/templates/steam-material.css"
 output_path = "/home/maeko/.local/share/Steam/millennium/themes/Material-Theme/css/main/colors/matugen.css"
 post_hook   = "/home/maeko/.local/bin/steam-theme-sync.sh"
 
-[theme.templates.user.startpage_icon]
-input_path  = "/home/maeko/.config/noctalia/templates/startpage-icon.svg"
-output_path = "/home/maeko/.config/startpage/icon.svg"
 
 [theme.templates.user.starship]
 input_path  = "/home/maeko/.config/noctalia/templates/starship.toml"
