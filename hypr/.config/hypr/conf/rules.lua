@@ -24,6 +24,7 @@ W({ match = { class = "^(mpv|imv|org\\.kde\\.haruna)$" },                       
 
 W({ match = { class = "^(steam)$", title = "^(notificationtoasts)" }, no_initial_focus = true, pin = true })
 
+W({ match = { class = "^(steam_app_.*)$" }, focus_on_activate = true })
 W({ match = { class = "^(gamescope)$" }, fullscreen = true })
 W({ match = { class = "^(gamescope|steam_app_.*|osu!|.*osu.*|cs2)$" }, opacity = "1.0 override 1.0 override", no_blur = true })
 
