@@ -1,6 +1,7 @@
 #!/bin/sh
 P="$HOME/.config/startpage/index.html"
-W=$(noctalia msg wallpaper-get 2>/dev/null)
+W=$(timeout 2 noctalia msg wallpaper-get 2>/dev/null)
+[ -f "$W" ] || W=$(python3 -I -c 'import tomllib,os;print(tomllib.load(open(os.path.expanduser("~/.local/state/noctalia/settings.toml"),"rb"))["wallpaper"]["last"]["path"])' 2>/dev/null)
 L="$HOME/.cache/noctalia/location.json"
 [ -f "$P" ] || exit 0
 python3 -I - "$P" "$W" "$L" <<'PY'
